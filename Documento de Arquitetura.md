@@ -8,6 +8,7 @@
 | Versão |    Data    |    Notas de revisão     | Responsável |
 | :----: | :--------: | :---------------------: | :---------: |
 |  1.0   | 03/04/2026 | Elaboração do Documento |   Rafael    |
+|  1.1   | 20/04/2026 | Remoção do DVC |   Rafael    |
 |  2.0   | 05/08/2026 | Atualização conforme implementação atual |   Rafael    |
 
 <div style="page-break-after: always;"></div>

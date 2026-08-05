@@ -33,8 +33,6 @@
 	- [[#5.10 Tabela dataset_favorites|5.10 Tabela dataset_favorites]]
 	- [[#5.11 Tabela licenses|5.11 Tabela licenses]]
 	- [[#5.12 Tabela audits|5.12 Tabela audits]]
-	- [[#5.13 Tabela auth_access_tokens|5.13 Tabela auth_access_tokens]]
-	- [[#5.14 Tabela reset_password_tokens|5.14 Tabela reset_password_tokens]]
 
 <div style="page-break-after: always;"></div> -->
 
@@ -123,7 +121,7 @@ Contém os metadados e as referências para os datasets cadastrados.
 | path            | Varchar   | Caminho base do diretório do dataset no sistema de arquivos. |
 | is_public       | Boolean   | Define se o dataset é público.                               |
 | status          | Varchar   | Estado do dataset (published, unpublished).                  |
-| area            | Varchar   | Área temática do dataset.                                    |
+| area            | Integer   | Área temática do dataset.                                    |
 | unit            | Varchar   | Unidade dos dados contidos no dataset.                       |
 | period          | Varchar   | Período de referência dos dados.                             |
 | region          | Varchar   | Região geográfica dos dados.                                 |
