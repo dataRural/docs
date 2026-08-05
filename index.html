@@ -5,8 +5,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SDNN Docs</title>
-    <meta name="description" content="Documentação do projeto SDNN" />
+    <title>DataRural Docs</title>
+    <meta name="description" content="Documentação do projeto DataRural" />
+    <link rel="icon" href="media/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
     <style>
         #theme-toggle {
@@ -34,9 +35,16 @@
             fill: currentColor;
         }
 
+        .sidebar .app-name-link img {
+            max-width: 48px;
+            max-height: 48px;
+            margin: 0 auto 8px auto;
+            display: block;
+        }
+
         body.dark-theme {
             background: #0f172a;
-            color: #e5e7eb;
+            color: #e2e8f0;
         }
 
         body.dark-theme .sidebar {
@@ -51,26 +59,63 @@
         body.dark-theme .sidebar h4,
         body.dark-theme .sidebar h5,
         body.dark-theme .sidebar h6 {
-            color: #e5e7eb;
+            color: #e2e8f0;
         }
 
         body.dark-theme .content,
         body.dark-theme .markdown-section {
             background: #0f172a;
-            color: #e5e7eb;
+            color: #e2e8f0;
+        }
+
+        body.dark-theme .markdown-section h1,
+        body.dark-theme .markdown-section h2,
+        body.dark-theme .markdown-section h3,
+        body.dark-theme .markdown-section h4,
+        body.dark-theme .markdown-section h5,
+        body.dark-theme .markdown-section h6 {
+            color: #f8fafc;
         }
 
         body.dark-theme .markdown-section code,
         body.dark-theme .markdown-section pre {
-            background: #111827;
-            color: #e5e7eb;
+            background: #1e293b;
+            color: #93c5fd;
+        }
+
+        body.dark-theme .markdown-section table {
+            border-collapse: collapse;
         }
 
         body.dark-theme .markdown-section table,
-        body.dark-theme .markdown-section tr,
-        body.dark-theme .markdown-section td,
+        body.dark-theme .markdown-section th,
+        body.dark-theme .markdown-section td {
+            border-color: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+
         body.dark-theme .markdown-section th {
-            border-color: #374151;
+            background-color: #1e293b !important;
+            color: #f8fafc !important;
+        }
+
+        body.dark-theme .markdown-section tr {
+            background-color: #0f172a !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-theme .markdown-section tr:nth-child(2n) {
+            background-color: #1e293b !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-theme .markdown-section tr:hover {
+            background-color: #334155 !important;
+        }
+
+        body.dark-theme .markdown-section em,
+        body.dark-theme .markdown-section strong {
+            color: #f8fafc !important;
         }
 
         body.dark-theme .markdown-section a,
@@ -95,7 +140,8 @@
     <div id="app"></div>
     <script>
         window.$docsify = {
-            name: "SDNN",
+            name: "DataRural",
+            logo: "media/favicon.svg",
             loadSidebar: true,
             subMaxLevel: 3,
             auto2top: true,
@@ -103,7 +149,7 @@
         };
 
         (function () {
-            var storageKey = "sdnn-docs-theme";
+            var storageKey = "datarural-docs-theme";
             var button = document.getElementById("theme-toggle");
             var icon = document.getElementById("theme-icon");
 

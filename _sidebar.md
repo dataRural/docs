@@ -1,4 +1,4 @@
-- SDNN
+- DataRural
   - [Início](/)
   - [Especificação Funcional](Documento%20de%20Especificação%20Funcional.md)
   - [Arquitetura](Documento%20de%20Arquitetura.md)

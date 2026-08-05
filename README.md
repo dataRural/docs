@@ -1,6 +1,6 @@
-# SDNN - Documentação
+# DataRural - Documentação
 
-Bem-vindo à documentação do projeto SDNN.
+Bem-vindo à documentação do projeto DataRural.
 
 Use o menu lateral para acessar os documentos:
 
