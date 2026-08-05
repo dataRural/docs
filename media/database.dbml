@@ -1,40 +1,153 @@
 Table users {
-  id uuid [pk]
-  email varchar [unique, not null]
-  password varchar [not null]
-  name varchar [not null]
-  role uuid
-  team uuid
+  id integer [pk]
+  email varchar [unique, not null]
+  password varchar
+  full_name varchar
+  username varchar
+  bio text
+  avatar json
+  avatar_url varchar
+  institution varchar
+  location varchar
+  role_id integer
+  created_at timestamp
+  updated_at timestamp
 }
 
 Table roles {
-  id uuid [pk]
-  name varchar [not null]
+  id integer [pk]
+  name varchar [not null]
+  description text
+  created_at timestamp
+  updated_at timestamp
 }
 
-Table teams {
-  id uuid [pk]
-  name varchar [not null]
+Table groups {
+  id integer [pk]
+  name varchar [not null]
+  description text
+  owner_id integer [not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table group_members {
+  id integer [pk]
+  group_id integer [not null]
+  user_id integer [not null]
+  role varchar [not null]
+  created_at timestamp
+  updated_at timestamp
 }
 
 Table datasets {
-  id uuid [pk]
-  name varchar [not null]
-  license uuid [not null]
-  path varchar [not null]
-  is_public boolean [default: false]
-  user_id uuid [not null]
-  team_id uuid
+  id integer [pk]
+  name varchar [not null]
+  description text
+  path varchar [not null]
+  is_public boolean [default: false]
+  status varchar
+  area integer
+  unit varchar
+  period varchar
+  region varchar
+  tags json
+  usability_score numeric
+  user_id integer [not null]
+  group_id integer
+  license_id integer
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table dataset_versions {
+  id integer [pk]
+  dataset_id integer [not null]
+  name varchar [not null]
+  path json
+  is_deleted boolean [default: false]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table dataset_version_files {
+  id integer [pk]
+  dataset_version_id integer [not null]
+  name varchar [not null]
+  path json
+  is_primary boolean
+  sort_order integer
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table dataset_areas {
+  id integer [pk]
+  name varchar [not null]
+  code varchar [not null]
+  description text
+  icon varchar
+  color varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table dataset_likes {
+  id integer [pk]
+  dataset_id integer [not null]
+  user_id integer [not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table dataset_favorites {
+  id integer [pk]
+  dataset_id integer [not null]
+  user_id integer [not null]
+  created_at timestamp
+  updated_at timestamp
 }
 
 Table licenses {
-  id uuid [pk]
-  description text
+  id integer [pk]
+  name varchar [not null]
+  description text
+  created_at timestamp
+  updated_at timestamp
 }
 
-Ref: users.role > roles.id
-Ref: users.team > teams.id
+Table audits {
+  id integer [pk]
+  auditable_id bigint
+  auditable_type varchar
+  event varchar
+  old_values json
+  new_values json
+  user_id varchar
+  user_type varchar
+  url varchar
+  ip_address varchar
+  user_agent varchar
+  tags json
+  audit_comment text
+  metadata json
+  request_id varchar
+  tenant_id varchar
+  created_at timestamp
+  updated_at timestamp
+}
 
-Ref: datasets.license > licenses.id
+Ref: users.role_id > roles.id
+Ref: groups.owner_id > users.id
+Ref: group_members.group_id > groups.id
+Ref: group_members.user_id > users.id
 Ref: datasets.user_id > users.id
-Ref: datasets.team_id > teams.id
+Ref: datasets.area > dataset_areas.id
+Ref: datasets.group_id > groups.id
+Ref: datasets.license_id > licenses.id
+Ref: dataset_versions.dataset_id > datasets.id
+Ref: dataset_version_files.dataset_version_id > dataset_versions.id
+Ref: dataset_likes.dataset_id > datasets.id
+Ref: dataset_likes.user_id > users.id
+Ref: dataset_favorites.dataset_id > datasets.id
+Ref: dataset_favorites.user_id > users.id
